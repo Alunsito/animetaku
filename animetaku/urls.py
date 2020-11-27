@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from animeapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('index/', views.index),
+    path('<int:anime_id>/', views.anime_info, name='Anime'),
+    path('<int:review_id>/review', views.anime_review, name='Review'),
 ]
