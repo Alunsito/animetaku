@@ -1,0 +1,9 @@
+{% if latest_anime %}
+    <ul>
+    {% for anime in latest_anime %}
+        <li><a href="{% url 'animeapp:detail' name_anime %}">{{ anime.name_anime }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No animes are available.</p>
+{% endif %}

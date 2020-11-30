@@ -1,0 +1,12 @@
+<h1>{{ anime.name_anime }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'animeapp:review' name_anime %}" method="post">
+{% csrf_token %}
+{% for user_post in review.review_text.all %}
+    <input type="radio" name="review" id="review{{ forloop.counter }}" value="{{ user_post }}">
+    <label for="review{{ forloop.counter }}">{{ review.review_text }}</label><br>
+{% endfor %}
+<input type="submit" value="Vote">
+</form>
